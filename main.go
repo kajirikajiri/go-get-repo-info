@@ -32,7 +32,6 @@ func main() {
 
 	usr, _ := user.Current()
 	f := strings.Replace("~/go-get-repo-info-access-token",  "~", usr.HomeDir, 1)
-	fmt.Println(f)
 
 	accessToken := useIoutilReadFile(f)
 	regexedAccessToken := convNewline(accessToken, "")
