@@ -1,6 +1,6 @@
 # go-get-repo-info
 
-go get github.com/kajirikajiri/go-get-repo-info
+go get -u github.com/kajirikajiri/go-get-repo-info
 
 vi ~/go-get-repo-info-access-token
 
