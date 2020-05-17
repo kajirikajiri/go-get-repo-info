@@ -20,7 +20,7 @@ func useIoutilReadFile(fileName string) string {
 
 func main() {
 
-	accessToken := useIoutilReadFile("go-get-repo-info-access-token")
+	accessToken := useIoutilReadFile("~/go-get-repo-info-access-token")
 
 	if accessToken == "" {
 		panic("access-token is blank. create go-get-repo-info/access-token. and write access-token. not \\n")
