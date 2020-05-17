@@ -35,7 +35,7 @@ func main() {
 	fmt.Println(f)
 
 	accessToken := useIoutilReadFile(f)
-	regexedAccessToken := convNewline(accessToken, "\n")
+	regexedAccessToken := convNewline(accessToken, "")
 
 	if accessToken == "" {
 		panic("access-token is blank. create go-get-repo-info/access-token. and write access-token. not \\n")
