@@ -7,6 +7,8 @@ import (
 	"io/ioutil"
 	"github.com/google/go-github/github"
 	"golang.org/x/oauth2"
+	"os/user"
+	"strings"
 )
 
 func useIoutilReadFile(fileName string) string {
@@ -20,7 +22,11 @@ func useIoutilReadFile(fileName string) string {
 
 func main() {
 
-	accessToken := useIoutilReadFile("~/go-get-repo-info-access-token")
+	usr, _ := user.Current()
+	f := strings.Replace("~/go-get-repo-info-access-token",  "~", usr.HomeDir, 1)
+	fmt.Println(f)
+
+	accessToken := useIoutilReadFile(f)
 
 	if accessToken == "" {
 		panic("access-token is blank. create go-get-repo-info/access-token. and write access-token. not \\n")
