@@ -42,7 +42,7 @@ func main() {
 
 	var (
 		status = flag.String("status", "open", "open|close|all" )
-		organization = flag.String("org", "kajirikajiri", "ex)OnetapInc|kajirikajiri" )
+		organization = flag.String("org", "kajirikajiri", "ex)kajirikajiri" )
 		branch = flag.String("branch", "", "ex}feature/issue-700" )
 		base = flag.String("base", "develop", "ex}develop|master|release" )
 		sort = flag.String("sort", "created", "created|updated|popularity|long-running" )
