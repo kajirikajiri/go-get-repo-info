@@ -9,7 +9,15 @@ import (
 	"golang.org/x/oauth2"
 	"os/user"
 	"strings"
+	"regexp"
 )
+
+var regxNewline = regexp.MustCompile(`\r\n|\r|\n`) //throw panic if fail
+
+func convNewline(str, nlcode string) string {
+    return regxNewline.Copy().ReplaceAllString(str, nlcode)
+}
+
 
 func useIoutilReadFile(fileName string) string {
 	bytes, err := ioutil.ReadFile(fileName)
@@ -27,6 +35,7 @@ func main() {
 	fmt.Println(f)
 
 	accessToken := useIoutilReadFile(f)
+	regexedAccessToken := convNewline(accessToken, "\n")
 
 	if accessToken == "" {
 		panic("access-token is blank. create go-get-repo-info/access-token. and write access-token. not \\n")
@@ -45,7 +54,7 @@ func main() {
 
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: accessToken},
+		&oauth2.Token{AccessToken: regexedAccessToken},
 	)
 	tc := oauth2.NewClient(ctx, ts)
 
