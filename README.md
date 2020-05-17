@@ -3,7 +3,9 @@
 go get github.com/kajirikajiri/go-get-repo-info
 
 vi $GOPATH/bin/go-get-repo-info-access-token
-and write github-access-token
+
+* and write github-access-token
 
 go-get-repo-info -status open -org kajirikajiri -branch test-branch -base master -sort created -direction desc -repo go-get-repo-info
-and show このメッセージが見えればテストは成功です
+
+* and show このメッセージが見えればテストは成功です
